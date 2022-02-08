@@ -29,13 +29,13 @@ ui <- dashboardPage(
                 "Seleccione un periodo:", 
                 choices = unique(arg_dep$date)),
     actionButton("amba", label = NULL, style = "width: 60px; height: 60px;
-background: url('https://lh4.googleusercontent.com/nuyfB51-FoExGq3e8AchAnDS08OKYLthUIyESiLuTYYJH-Az66kWmAzQacwzUAuKshC3YQMq2JqWG0sRPyRopvhhfSk0oln85Rc50uqtN9oobFIABaO7qdpJd1YWBFTfuSDcU-Tu');  background-size: cover; background-position: center;"),
+background: url('https://lh4.googleusercontent.com/s8zT3gNEk0o6pOfcpVVUG2ddodc4-_Sgzs8tJ1gCn3StJHQn99YrqxZwL6F9JCUquQ_YMY9Zdb3UsqcM51c1osc0UxDhU0kyGxe967HsIm0x46k9F69w32dRsH_bLqH2nBI5LzP5');  background-size: cover; background-position: center;"),
     actionButton("nor", label = NULL, style = "width: 60px; height: 60px;
-background: url('https://lh5.googleusercontent.com/07W3DOdh_TeRsE3sc6WG9Tg-V7OeJJlSYgWp3BdMqcjslO_g67pbG7m8-REKdDIqOK_wQcoCkXUjkUVvhx-TMX01gyIS_ire23qrAsFnu8SKzutEj-iylfSNwjGUtSWStg48tFMu');  background-size: cover; background-position: center;"),
+background: url('https://lh5.googleusercontent.com/Ou00Rsq1r9q9pRwVhNmiTtt00A2bWYoNO2ag4Gds6fm6p7Z05XNm4qM8B8WySdMqw6zXKmz9m-VFMtxP0LbspYYuTciFw6pamicrBPFLM4n0Y_Gc6BHxkijgjTkUUXh3I_q0i9eA');  background-size: cover; background-position: center;"),
     actionButton("centro", label = NULL, style = "width: 60px; height: 60px;
-background: url('https://lh4.googleusercontent.com/P_StVC3y6gF5mwYmWWuJDAQrHn4CId3evp5_w5gcX4eeH3issAp2vGOMt6ym67iYjPxZWtTD9Hre9fS5OA0Cqxi656GCpDUfo1IC3dVp2iicoR5bIwCBLDE8lc2dl9atBTf7boaI');  background-size: cover; background-position: center;"), 
+background: url('https://lh4.googleusercontent.com/VZkG62RHYOD0HFeFrFzz8b6qhRZLkV1di-qsprplUJPMUFZUkudKq25nR_4FXlOpL-s5OeP9yCDdQJegUI1lHGnnPqG5eoXmMJYwHDyyOl7KQ_xYQlfZqN7GnXEsZ9WqG7XV4rOx');  background-size: cover; background-position: center;"), 
     actionButton("sur", label = NULL, style = "width: 60px; height: 60px;
-background: url('https://lh4.googleusercontent.com/A8EmvnJY630MSrz_U7y_4gOXDVOb_O_3902flA8H18KJb8TYSVNkKVd_EVBgk8FMgyUaDoEPFNqt0xgbp6kCJw8EKzzDPLCGSw8H3TjHXucQUKIv4QDrQVItiMsRdwq4ZjhbKUdZ');  background-size: cover; background-position: center;"),
+background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-Pc9ARxUhZjiZMNg06FzdQROk2eVtrb6GBAhC7KujUEABMUwcEAXslDq_0hRk_kEJbS3Kfgsk9-x21sjY06myxRQsxfwNIdj2aKsZHXoEoElf');  background-size: cover; background-position: center;"),
     h5("Este entorno fue desarrollado a través de ", 
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
        y detallados de todo el mundo, útil para una mejor comprensión del COVID-19", align = "center")),
