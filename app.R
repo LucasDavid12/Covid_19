@@ -34,7 +34,7 @@ background: url('https://lh4.googleusercontent.com/nuyfB51-FoExGq3e8AchAnDS08OKY
 background: url('https://lh5.googleusercontent.com/07W3DOdh_TeRsE3sc6WG9Tg-V7OeJJlSYgWp3BdMqcjslO_g67pbG7m8-REKdDIqOK_wQcoCkXUjkUVvhx-TMX01gyIS_ire23qrAsFnu8SKzutEj-iylfSNwjGUtSWStg48tFMu');  background-size: cover; background-position: center;"),
     actionButton("centro", label = NULL, style = "width: 60px; height: 60px;
 background: url('https://lh4.googleusercontent.com/P_StVC3y6gF5mwYmWWuJDAQrHn4CId3evp5_w5gcX4eeH3issAp2vGOMt6ym67iYjPxZWtTD9Hre9fS5OA0Cqxi656GCpDUfo1IC3dVp2iicoR5bIwCBLDE8lc2dl9atBTf7boaI');  background-size: cover; background-position: center;"), 
-    actionButton("sur", "Región Sur", label = NULL, style = "width: 60px; height: 60px;
+    actionButton("sur", label = NULL, style = "width: 60px; height: 60px;
 background: url('https://lh4.googleusercontent.com/A8EmvnJY630MSrz_U7y_4gOXDVOb_O_3902flA8H18KJb8TYSVNkKVd_EVBgk8FMgyUaDoEPFNqt0xgbp6kCJw8EKzzDPLCGSw8H3TjHXucQUKIv4QDrQVItiMsRdwq4ZjhbKUdZ');  background-size: cover; background-position: center;"),
     h5("Este entorno fue desarrollado a través de ", 
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
