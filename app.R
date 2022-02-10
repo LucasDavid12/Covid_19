@@ -95,7 +95,7 @@ server <- function(input, output) {
   })
   output$Confirmados <- renderLeaflet({
     
-    bins_conf <- c(0, 5, 10, 100, 300, 750, 1500, 3000, 6000)
+    bins_conf <- c(0, 10, 50, 200, 450, 950, 2500, 4500, 9500)
   
     icono_covid = "https://cdn.pixabay.com/photo/2020/05/22/19/50/corona-5206900_1280.png"
     
