@@ -17,6 +17,7 @@ library(stringr)
 
 arg_dep <- readRDS("argentina_covid_dep.RDS")
 arg_prov <- readRDS("argentina_covid_prov.RDS")
+arg_data <- readRDS("argentina_data.RDS")
 
 arg_date_confir <- arg_data %>% select(date, NAME_1, NAME_2, confirmed, pro.confir, 
                                        population, administrative_area_level_1)
