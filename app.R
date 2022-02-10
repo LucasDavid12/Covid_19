@@ -18,6 +18,17 @@ library(stringr)
 arg_dep <- readRDS("argentina_covid_dep.RDS")
 arg_prov <- readRDS("argentina_covid_prov.RDS")
 
+arg_date_confir <- arg_data %>% select(date, NAME_1, NAME_2, confirmed, pro.confir, 
+                                       population, administrative_area_level_1)
+
+arg_date_falle <- arg_data %>% select(date, NAME_1, NAME_2, deaths, pro.muertes, 
+                                       population, administrative_area_level_1)
+
+arg_date_test <- arg_data %>% select(date, NAME_1, NAME_2, tests, pro.test, 
+                                       population, administrative_area_level_1)
+
+arg_date_vacu <- arg_data %>% select(date, NAME_1, NAME_2, people_vaccinated, pro.gente.vacu, 
+                                       population, administrative_area_level_1)
 
 ui <- dashboardPage(
   skin = "blue", 
@@ -43,16 +54,16 @@ background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-P
     tabsetPanel( 
       tabPanel("Confirmados", icon = icon("virus"), leafletOutput("Confirmados"), box(title = strong("Provincias con más casos confirmados"), status= "warning", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_Confi")),
                box(title =  strong("Departamentos con más casos confirmados"), status = "warning", solidHeader = T, collapsible = T, plotOutput("Gra_Confi_dpto")),
-               htmlOutput(outputId = "total_confi")),
+               htmlOutput(outputId = "total_confi"), downloadButton("downloadDataConfir", "Descargar info. sobre los casos confirmados")),
       tabPanel("Test", icon = icon("vial"), leafletOutput("test"), box(title = strong("Provincias con más testeos"), status= "info", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_test")),
                box(title =  strong("Departamentos con más testeos"), status = "info", solidHeader = T, collapsible = T, plotOutput("Gra_test_dpto")),
-               htmlOutput(outputId = "total_test")),
+               htmlOutput(outputId = "total_test"), downloadButton("downloadDataTest", "Descargar info. sobre los tests")),
       tabPanel("Fallecimientos", icon = icon("times"), leafletOutput("Fallecimientos"), box(title = strong("Provincias con más decesos por Covid-19"), status= "danger", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_falle")),
                box(title =  strong("Departamentos con más decesos por Covid-19"), status = "danger", solidHeader = T, collapsible = T, plotOutput("Gra_falle_dpto")),
-               htmlOutput(outputId = "total_falle")),
+               htmlOutput(outputId = "total_falle"), downloadButton("downloadDataFalle", "Descargar info. sobre los fallecimientos")),
       tabPanel("Personas Vacunadas", icon = icon("syringe"), leafletOutput("Vacunados"), box(title = strong("Provincias con más personas vacunadas"), status = "success", solidHeader = T, collapsible = T, plotOutput("Gra_gen_vacu")), 
                box(title = strong("Departamentos con más personas vacunadas"), status = "success", solidHeader = T,  collapsible = T, plotOutput("Gra_gen_vacu_dpto")), 
-               htmlOutput("total_gen_vacu")), 
+               htmlOutput("total_gen_vacu"), downloadButton("downloadDataVacu", "Descargar info. sobre las Vacunas")), 
       tags$div(id = "cite", "Data compilada por: ", tags$em("Guidotti, E., Ardia, D., (2020), 'COVID-19 Data Hub', Journal of Open Source Software 5(51):2376, doi: 10.21105/joss.02376."))
     )
   )
@@ -468,6 +479,36 @@ server <- function(input, output) {
       setView(lat = -43.3, lng = -65.1, zoom = 5)
   })
 
+    output$downloadDataConfir <- downloadHandler(
+    filename = function(){ 
+      paste("arg_date_confir",".csv",sep=",")
+    },
+    content = function(file) {
+      write.csv(arg_date_confir,file)
+    })
+  output$downloadDataFalle <- downloadHandler(
+    filename = function(){ 
+      paste("arg_date_falle",".csv",sep=",")
+    },
+    content = function(file) {
+      write.csv(arg_date_falle,file)
+    })
+  output$downloadDataTest <- downloadHandler(
+    filename = function(){ 
+      paste("arg_date_test",".csv",sep=",")
+    },
+    content = function(file) {
+      write.csv(arg_date_test,file)
+    }) 
+  output$downloadDataVacu <- downloadHandler(
+    filename = function(){ 
+      paste("arg_date_vacu",".csv",sep=",")
+    },
+    content = function(file) {
+      write.csv(arg_date_vacu,file)
+    }) 
+  
+  
   
   
 }    
