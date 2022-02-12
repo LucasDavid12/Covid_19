@@ -92,20 +92,20 @@ server <- function(input, output) {
   })
   
   fecha_covid_c <- reactive({
-    lv <- arg_data_confir %>% filter(date == input$fecha)
+    lv <- arg_date_confir %>% filter(date == input$fecha)
     return(lv)
   })  
   fecha_covid_f <- reactive({
-    lv <- arg_data_falle %>% filter(date == input$fecha)
+    lv <- arg_date_falle %>% filter(date == input$fecha)
     return(lv)
   })  
   fecha_covid_t <- reactive({
-    lv <- arg_data_test %>% filter(date == input$fecha)
+    lv <- arg_date_test %>% filter(date == input$fecha)
     return(lv)
   }) 
   
   fecha_covid_v <- reactive({
-    lv <- arg_data_vacu %>% filter(date == input$fecha)
+    lv <- arg_date_vacu %>% filter(date == input$fecha)
     return(lv)
   }) 
   
