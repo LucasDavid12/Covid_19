@@ -34,9 +34,9 @@ arg_date_vacu <- arg_data %>% select(date, NAME_1, NAME_2, people_vaccinated, pr
 ui <- dashboardPage(
   skin = "blue", 
   dashboardHeader(title = "Covid-19 en Argentina", 
-                  tags$li(class="dropdown", tags$a(href="https://twitter.com/Vidal_Lucas_", icon("twitter"), "Mi perfil", target="_blanck")), 
+                  tags$li(class="dropdown", tags$a(href="https://twitter.com/Vidal_Lucas_", icon("twitter"), "Twitter", target="_blanck")), 
                  tags$li(class="dropdown", tags$a(href="https://github.com/LucasDavid12/covid_19", icon("github"), "Código", target="_blanck"))),
-  dashboardSidebar(div(style = "font-size: 8px;",
+  dashboardSidebar(
     selectInput("fecha", 
                 "Seleccione un periodo:", 
                 choices = unique(arg_dep$date)),
@@ -52,7 +52,7 @@ background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-P
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
        y detallados de todo el mundo, útil para una mejor comprensión del COVID-19")), 
 div(style="display:inline-block;width:100%;text-align: center;justify-content: center", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
-  downloadButton("downloadDataTotal", "Descargar data"))),
+  div(style="display:inline-block;width:32%;text-align: center;", downloadButton("downloadDataTotal", "Descargar data"))),
   dashboardBody(
     tabsetPanel( 
       tabPanel("Confirmados", icon = icon("virus"), leafletOutput("Confirmados"), box(title = strong("Provincias con más casos confirmados"), status= "warning", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_Confi")),
