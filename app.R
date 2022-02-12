@@ -52,7 +52,8 @@ background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-P
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
        y detallados de todo el mundo, útil para una mejor comprensión del COVID-19")), 
 div(style="display:inline-block;width:100%;text-align: center;justify-content: center", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
-  downloadButton("downloadDataTotal", "Descargar data", class =  div(style="display:inline-block;width:32%;text-align: center;"))),
+  div(style="display:inline-block;width:32%;text-align: center;", downloadButton("downloadDataTotal", label = NULL, style = "width: 60px; height: 60px;
+background: url('https://lh4.googleusercontent.com/s8zT3gNEk0o6pOfcpVVUG2ddodc4-_Sgzs8tJ1gCn3StJHQn99YrqxZwL6F9JCUquQ_YMY9Zdb3UsqcM51c1osc0UxDhU0kyGxe967HsIm0x46k9F69w32dRsH_bLqH2nBI5LzP5');  background-size: cover; background-position: center;"))),
   dashboardBody(
     tabsetPanel( 
       tabPanel("Confirmados", icon = icon("virus"), leafletOutput("Confirmados"), box(title = strong("Provincias con más casos confirmados"), status= "warning", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_Confi")),
