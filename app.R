@@ -48,10 +48,10 @@ background: url('https://lh5.googleusercontent.com/Ou00Rsq1r9q9pRwVhNmiTtt00A2bW
 background: url('https://lh4.googleusercontent.com/VZkG62RHYOD0HFeFrFzz8b6qhRZLkV1di-qsprplUJPMUFZUkudKq25nR_4FXlOpL-s5OeP9yCDdQJegUI1lHGnnPqG5eoXmMJYwHDyyOl7KQ_xYQlfZqN7GnXEsZ9WqG7XV4rOx');  background-size: cover; background-position: center;")), 
     div(style="display:inline-block;width:32%;text-align: center;", actionButton("sur", label = NULL, style = "width: 60px; height: 60px;
 background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-Pc9ARxUhZjiZMNg06FzdQROk2eVtrb6GBAhC7KujUEABMUwcEAXslDq_0hRk_kEJbS3Kfgsk9-x21sjY06myxRQsxfwNIdj2aKsZHXoEoElf');  background-size: cover; background-position: center;")),
-    h5("Este entorno fue desarrollado a través de ", 
+    div(style="display:inline-block;width:100%;text-align: center;justify-content: center", h5("Este entorno fue desarrollado a través de ", 
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
-       y detallados de todo el mundo, útil para una mejor comprensión del COVID-19", align = "center"), 
-div(style="display:inline-block;width:100%;text-align: justify;justify-content: center", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
+       y detallados de todo el mundo, útil para una mejor comprensión del COVID-19")), 
+div(style="display:inline-block;width:100%;text-align: center;justify-content: center", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
   downloadButton("downloadDataTotal", "Descargar data"))),
   dashboardBody(
     tabsetPanel( 
