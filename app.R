@@ -51,7 +51,7 @@ background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-P
     h5("Este entorno fue desarrollado a través de ", 
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
        y detallados de todo el mundo, útil para una mejor comprensión del COVID-19", align = "center"), 
-div(style="display:inline-block;width:32%;text-align: left;", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
+div(style="display:inline-block;width:60%;text-align: left;", h5(strong("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"))), 
   downloadButton("downloadDataTotal", "Descargar data")),
   dashboardBody(
     tabsetPanel( 
