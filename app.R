@@ -36,7 +36,7 @@ ui <- dashboardPage(
   dashboardHeader(title = "Covid-19 en Argentina", 
                   tags$li(class="dropdown", tags$a(href="https://twitter.com/Vidal_Lucas_", icon("twitter"), "Mi perfil", target="_blanck")), 
                  tags$li(class="dropdown", tags$a(href="https://github.com/LucasDavid12/covid_19", icon("github"), "Código", target="_blanck"))),
-  dashboardSidebar(
+  dashboardSidebar(div(style = "font-size: 8px;",
     selectInput("fecha", 
                 "Seleccione un periodo:", 
                 choices = unique(arg_dep$date)),
