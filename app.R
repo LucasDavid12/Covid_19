@@ -90,7 +90,7 @@ server <- function(input, output) {
     
     num_conf <- format(num_conf, big.mark = ".")
     
-    HTML(paste('<h4 class="black">Casos confirmados a nivel nacional en el mes: ', num_conf, '</h4>'))
+    h4(strong("Casos confirmados a nivel nacional en el mes: ", num_conf))
     
   })
   output$Confirmados <- renderLeaflet({
@@ -168,7 +168,7 @@ server <- function(input, output) {
     
     num_test <- format(num_test, big.mark = ".")
     
-    HTML(paste('<h4 class="black">Testeos a nivel nacional en el mes: ', num_test, '</h4>'))
+    h4(strong("Testeos a nivel nacional en el mes: ", num_test))
     
   })
   output$test <- renderLeaflet({
@@ -243,7 +243,7 @@ server <- function(input, output) {
     
     num_falle <- format(num_falle, big.mark = ".")
     
-    HTML(paste('<h4 class="black">Decesos por covid-19 a nivel nacional en el mes: ', num_falle, '</h4>'))
+   h4(strong("Decesos por covid-19 a nivel nacional en el mes: ", num_falle))
     
   })
   output$Fallecimientos <- renderLeaflet({
@@ -323,7 +323,7 @@ server <- function(input, output) {
     
     num_gen_vacu <- format(num_gen_vacu, big.mark = ".")
     
-    HTML(paste('<h4 class="black">Cantidad de personas vacunadas a nivel nacional en el mes: ', num_gen_vacu, '</h4>'))
+    h4(strong("Cantidad de personas vacunadas a nivel nacional en el mes: ", num_gen_vacu))
     
   })
   output$Vacunados <- renderLeaflet({
