@@ -50,7 +50,9 @@ background: url('https://lh4.googleusercontent.com/VZkG62RHYOD0HFeFrFzz8b6qhRZLk
 background: url('https://lh3.googleusercontent.com/IclLBPF7PLc9tSXCT7if3yN_y7Q-Pc9ARxUhZjiZMNg06FzdQROk2eVtrb6GBAhC7KujUEABMUwcEAXslDq_0hRk_kEJbS3Kfgsk9-x21sjY06myxRQsxfwNIdj2aKsZHXoEoElf');  background-size: cover; background-position: center;")),
     h5("Este entorno fue desarrollado a través de ", 
        tags$a(href = "https://covid19datahub.io/", "COVID-19 Data Hub"), ", el cual proporciona un conjunto de datos unificados
-       y detallados de todo el mundo, útil para una mejor comprensión del COVID-19", align = "center")),
+       y detallados de todo el mundo, útil para una mejor comprensión del COVID-19", align = "center"), 
+h5("Descarga la data de todas las pestañas filtrada por la fecha seleccionada"), 
+  downloadButton("downloadDataTotal", "Descargar data)),
   dashboardBody(
     tabsetPanel( 
       tabPanel("Confirmados", icon = icon("virus"), leafletOutput("Confirmados"), box(title = strong("Provincias con más casos confirmados"), status= "warning", solidHeader = T, collapsible = T, plotOutput(outputId = "Gra_Confi")),
@@ -82,12 +84,30 @@ server <- function(input, output) {
   fecha_covid2 <- reactive({
     lv <- arg_prov %>% filter(date == input$fecha)
     return(lv)
-  })  
+  })
   
   fecha_covid3 <- reactive({
     lv <- arg_data %>% filter(date == input$fecha)
     return(lv)
+  })
+  
+  fecha_covid_c <- reactive({
+    lv <- arg_data_confir %>% filter(date == input$fecha)
+    return(lv)
   })  
+  fecha_covid_f <- reactive({
+    lv <- arg_data_falle %>% filter(date == input$fecha)
+    return(lv)
+  })  
+  fecha_covid_t <- reactive({
+    lv <- arg_data_test %>% filter(date == input$fecha)
+    return(lv)
+  }) 
+  
+  fecha_covid_v <- reactive({
+    lv <- arg_data_vacu %>% filter(date == input$fecha)
+    return(lv)
+  }) 
   
   output$total_confi <- renderUI({
     
@@ -485,33 +505,40 @@ server <- function(input, output) {
       setView(lat = -43.3, lng = -65.1, zoom = 5)
   })
 
-    output$downloadDataConfir <- downloadHandler(
+  output$downloadDataTotal <- downloadHandler(
+    filename = function(){ 
+      paste("arg_date",".csv",sep=",")
+    },
+    content = function(file) {
+      write.csv(fecha_covid3(),file)
+    })  
+  output$downloadDataConfir <- downloadHandler(
     filename = function(){ 
       paste("arg_date_confir",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(fecha_covid3(),file)
+      write.csv(fecha_covid_c(),file)
     })
   output$downloadDataFalle <- downloadHandler(
     filename = function(){ 
       paste("arg_date_falle",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(arg_date_falle,file)
+      write.csv(fecha_covid_f(),file)
     })
   output$downloadDataTest <- downloadHandler(
     filename = function(){ 
       paste("arg_date_test",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(arg_date_test,file)
+      write.csv(fecha_covid_t(),file)
     }) 
   output$downloadDataVacu <- downloadHandler(
     filename = function(){ 
       paste("arg_date_vacu",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(arg_date_vacu,file)
+      write.csv(fecha_covid_v(),file)
     }) 
   
   
