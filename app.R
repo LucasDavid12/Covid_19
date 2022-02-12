@@ -485,7 +485,7 @@ server <- function(input, output) {
       paste("arg_date_confir",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(arg_date_confir,file)
+      write.csv(fecha_covid(),file)
     })
   output$downloadDataFalle <- downloadHandler(
     filename = function(){ 
