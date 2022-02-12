@@ -84,6 +84,11 @@ server <- function(input, output) {
     return(lv)
   })  
   
+  fecha_covid3 <- reactive({
+    lv <- arg_data %>% filter(date == input$fecha)
+    return(lv)
+  })  
+  
   output$total_confi <- renderUI({
     
     num_conf <- sum(fecha_covid2()$confirmed)
@@ -485,7 +490,7 @@ server <- function(input, output) {
       paste("arg_date_confir",".csv",sep=",")
     },
     content = function(file) {
-      write.csv(fecha_covid(),file)
+      write.csv(fecha_covid3(),file)
     })
   output$downloadDataFalle <- downloadHandler(
     filename = function(){ 
