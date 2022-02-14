@@ -21,23 +21,23 @@ arg_data <- readRDS("argentina_data.RDS")
 
 arg_date_confir <- arg_data %>% select(date, NAME_1, NAME_2, confirmed, pro.confir, 
                                        population, administrative_area_level_1) %>% 
-rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "confirmed" = "Confirmados", "pro.confir" = "Tasax100mil", "population" = "Población", 
-      "administrative_area_level_1" = "País")
+rename("fecha" = "date", "Provincia" = "NAME_1", "Municipio" = "NAME_2", "Confirmados" = "confirmed", "Tasax100mil" = "pro.confir", "Población" = "population", 
+      "País" = "administrative_area_level_1")
 
 arg_date_falle <- arg_data %>% select(date, NAME_1, NAME_2, deaths, pro.muertes, 
                                        population, administrative_area_level_1) %>% 
-rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "deaths" = "Fallecimientos", "pro.muertes" = "Tasax100mil", "population" = "Población", 
-      "administrative_area_level_1" = "País")
+rename("fecha" = "date", "Provincia" = "NAME_1", "Municipio" = "NAME_2", "Fallecimientos" = "deaths", "Tasax100mil" = "pro.muertes", "Población" = "population", 
+      "País" = "administrative_area_level_1")
 
 arg_date_test <- arg_data %>% select(date, NAME_1, NAME_2, tests, pro.test, 
                                        population, administrative_area_level_1) %>% 
-rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "pro.test" = "Tasax100mil", "population" = "Población", 
-      "administrative_area_level_1" = "País")
+rename("fecha" = "date", "Provincia" = "NAME_1", "Municipio" = "NAME_2", "Tasax100mil" = "pro.test", "Población" = "population", 
+      "País" = "administrative_area_level_1")
 
 arg_date_vacu <- arg_data %>% select(date, NAME_1, NAME_2, people_vaccinated, pro.gente.vacu, 
                                        population, administrative_area_level_1) %>% 
-rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "people_vaccinated" = "Vacunados", "pro.gente.vacu" = "Tasax100mil", "population" = "Población", 
-      "administrative_area_level_1" = "País")
+rename("fecha" = "date", "Provincia" = "NAME_1", "Municipio" = "NAME_2", "Vacunados" = "people_vaccinated", "Tasax100mil" = "pro.gente.vacu", "Población" = "population", 
+      "País" = "administrative_area_level_1")
 
 ui <- dashboardPage(
   skin = "blue", 
