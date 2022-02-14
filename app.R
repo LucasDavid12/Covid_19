@@ -220,7 +220,7 @@ server <- function(input, output) {
                   fillOpacity = 0.8, 
                   highlight = highlightOptions(weight = 3, 
                                                color = "black", 
-                                               bringToFront = T))) %>%
+                                               bringToFront = T)) %>%
       addLegend(position = "bottomright", 
                 pal = pal_test,
                 values = arg_prov$pro.test,
