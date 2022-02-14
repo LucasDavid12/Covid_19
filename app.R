@@ -217,7 +217,10 @@ server <- function(input, output) {
                     paste0(as.character(fecha_covid2()$NAME_1),
                            " | Cantidad de testeos: ", as.character(fecha_covid2()$tests)),
                   fillColor = ~pal_test(fecha_covid2()$pro.test), 
-                  fillOpacity = 0.8) %>%
+                  fillOpacity = 0.8, 
+                  highlight = highlightOptions(weight = 3, 
+                                               color = "black", 
+                                               bringToFront = T))) %>%
       addLegend(position = "bottomright", 
                 pal = pal_test,
                 values = arg_prov$pro.test,
