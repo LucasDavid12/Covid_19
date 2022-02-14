@@ -20,16 +20,24 @@ arg_prov <- readRDS("argentina_covid_prov.RDS")
 arg_data <- readRDS("argentina_data.RDS")
 
 arg_date_confir <- arg_data %>% select(date, NAME_1, NAME_2, confirmed, pro.confir, 
-                                       population, administrative_area_level_1)
+                                       population, administrative_area_level_1) %>% 
+rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "confirmed" = "Confirmados", "pro.confir" = "Tasax100mil", "population" = "Población", 
+      "administrative_area_level_1" = "País")
 
 arg_date_falle <- arg_data %>% select(date, NAME_1, NAME_2, deaths, pro.muertes, 
-                                       population, administrative_area_level_1)
+                                       population, administrative_area_level_1) %>% 
+rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "deaths" = "Fallecimientos", "pro.muertes" = "Tasax100mil", "population" = "Población", 
+      "administrative_area_level_1" = "País")
 
 arg_date_test <- arg_data %>% select(date, NAME_1, NAME_2, tests, pro.test, 
-                                       population, administrative_area_level_1)
+                                       population, administrative_area_level_1) %>% 
+rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "pro.test" = "Tasax100mil", "population" = "Población", 
+      "administrative_area_level_1" = "País")
 
 arg_date_vacu <- arg_data %>% select(date, NAME_1, NAME_2, people_vaccinated, pro.gente.vacu, 
-                                       population, administrative_area_level_1)
+                                       population, administrative_area_level_1) %>% 
+rename("date" = "fecha", "NAME_1" = "Provincia", "NAME_2" = "Municipio", "people_vaccinated" = "Vacunados", "pro.gente.vacu" = "Tasax100mil", "population" = "Población", 
+      "administrative_area_level_1" = "País")
 
 ui <- dashboardPage(
   skin = "blue", 
